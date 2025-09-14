@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding-bottom: 50px;
+}

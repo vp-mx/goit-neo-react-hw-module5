@@ -1,0 +1,16 @@
+.mainInfoWithImage {
+  margin-top: 10px;
+  display: flex;
+}
+
+.mainInformation {
+  padding: 15px;
+}
+
+.additionalInformation {
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0) 80%;
+  padding: 10px;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
