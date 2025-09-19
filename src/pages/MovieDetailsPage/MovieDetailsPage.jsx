@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { HiArrowLeft } from 'react-icons/hi';
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { getMovieDetails, getImageUrl } from "../../tmdb-api";
@@ -9,8 +9,9 @@ const MovieDetailsPage = () => {
     const [movieDetails, setMovieDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
+    const backLinkRef = useRef(location.state);
 
-    const backLinkHref = location.state?.from ?? "/movies";
+    const backLinkHref = backLinkRef.current?.from ?? "/movies";
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
@@ -64,8 +65,8 @@ const MovieDetailsPage = () => {
             <div className={styles.additionalInformation}>
                 <h4>Additional information</h4>
                 <ul>
-                    <li><Link to="cast" state={{ from: backLinkHref }}>Cast</Link></li>
-                    <li><Link to="reviews" state={{ from: backLinkHref }}>Reviews</Link></li>
+                    <li><Link to="cast" state={{ from: backLinkRef.current }}>Cast</Link></li>
+                    <li><Link to="reviews" state={{ from: backLinkRef.current }}>Reviews</Link></li>
                 </ul>
             </div>
 
